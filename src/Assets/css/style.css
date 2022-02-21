@@ -3,14 +3,22 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+
 #myBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Fixed/sticky position */
+  bottom: 20px;
+  /* Place the button at the bottom of the page */
+  right: 30px;
+  /* Place the button 30px from the right */
+  z-index: 99;
+  /* Make sure it does not overlap */
+  border: none;
+  /* Remove borders */
+  outline: none;
+  /* Remove outline */
   height: 6%;
 }
 
@@ -425,6 +433,18 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .p-font {
+    font-size: 40px;
+  }
+  .in-from-hd {
+    font-size: 38px;
+}
+.in-form-para {
+  font-size:small;
+}
+.in-form-sub {
+  font-size: 30px;
+}
   .background-home {
     background-image: url("../images/mobile.png");
     background-size: cover;
@@ -432,9 +452,11 @@
     background-attachment: scroll;
     background-position: center;
   }
-  #call-tab-mob{
+
+  #call-tab-mob {
     display: none;
   }
+
   .title-of-testi {
     font-size: 19px;
   }
@@ -463,8 +485,9 @@
   .carousel-label {
     font-size: 17px;
   }
-  #myBtn{
-    display:block;
+
+  #myBtn {
+    display: block;
   }
 }
 
@@ -476,12 +499,15 @@
     background-attachment: scroll;
     background-position: center;
   }
-  #call-tab-mob{
+
+  #call-tab-mob {
     display: none;
   }
-  #myBtn{
-    display:block;
+
+  #myBtn {
+    display: block;
   }
+
   .title-of-testi {
     font-size: 37px;
   }
