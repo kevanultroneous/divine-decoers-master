@@ -11,7 +11,7 @@ const PersonalViewPage = () => {
     return (
         <Container fluid className="back-contain">
             <DivineNavbar />
-            {/* <PersonalAd /> */}
+            <PersonalAd />
             <PersonalView />
             <RelatedItem />
             <Footer />

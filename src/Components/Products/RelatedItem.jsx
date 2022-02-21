@@ -11,7 +11,7 @@ const RelatedItem = () => {
     infinite: true,
     speed: 500,
     arrows: false,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     responsive: sliderRes
   };

@@ -11,7 +11,6 @@ const AboutUs = () => {
   }
   useEffect(() => {
     getData()
-    console.log(about)
   }, [about])
   return (
     <>

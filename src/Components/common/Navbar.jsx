@@ -9,12 +9,23 @@ import { Link, useNavigate } from "react-router-dom";
 import menu from "../../Assets/images/menu.png"
 const DivineNavbar = () => {
   const [show, setShow] = useState(false)
+  const [chngClr, setChmgClr] = useState(false)
   const handleClose = () => {
     setShow(false)
   }
+  const changeNavbarColor = () => {
+    if(window.scrollY >= 80){
+      setChmgClr(true)
+    }
+    else{
+      setChmgClr(false)
+    }
+  }
+  window.addEventListener('scroll', changeNavbarColor);
   return (
     <>
-      <Navbar expand="lg" sticky="top">
+      <Image src={call} id="myBtn" onClick={() => setShow(true)} />
+      <Navbar expand="lg" sticky="top" style={{ background: chngClr ? '#FFEFE2' : 'none' }}>
         <Container fluid className="mt-3  mt-xl-3 mt-lg-3  mt-md-3">
           <Link to="/" className="text-decoration-none">
             <Navbar.Brand href="#" className="ms-md-5 ms-xs-1 ms-xl-5 ms-lg-5">
@@ -33,7 +44,7 @@ const DivineNavbar = () => {
               </Link>
               <Link to="/customtemples" className="text-decoration-none">
                 <Nav.Link href="/customtemples" className="me-xl-5 me-md-5 me-lg-5">Products</Nav.Link>
-              </Link> 
+              </Link>
               <Nav.Link href="http://localhost:3000/#about" className="">About Us</Nav.Link>
               {/* <div className="vector"/> */}
               <Link to="/customtemples" className="text-decoration-none">
@@ -47,7 +58,7 @@ const DivineNavbar = () => {
                 </Nav.Link>
               </Link>
               {/* <div className="vector"/> */}
-              <Nav.Link onClick={() => setShow(true)} className="p-0 me-xl-5">
+              <Nav.Link onClick={() => setShow(true)} className="p-0 me-xl-5" id="call-tab-mob">
                 <Image src={call} height="45" />
               </Nav.Link>
             </Nav>
