@@ -6,13 +6,14 @@ import { personalViewList, sliderRes } from "../../common/common"
 import Slider from "react-slick/lib/slider"
 import pl from "../../Assets/images/plr.png"
 import PersonalAd from "./PersonalAd"
+import InquireForm from "./InquireForm"
 const PersonalView = () => {
     const [product_information, setProduct_information] = useState(personalViewList.information)
     const [sliderArray, setSliderArray] = useState(personalViewList.images)
     const [selectedItm, setSelectedItem] = useState('')
     const [hItem, setHItem] = useState('')
     const [dis, setDis] = useState('none')
-
+    const [inf, setInf] = useState(false)
     const settings = {
         dots: true,
         infinite: true,
@@ -38,9 +39,12 @@ const PersonalView = () => {
     }
     return (
         <>
+            <InquireForm
+                showIm={inf}
+                hide={() => setInf(false)}
+            />
             <Row className="mt-3 mb-5 ms-xl-5">
-
-                <Col xl={6} lg={8} xs={6}>
+                <Col xl={5} lg={8} xs={12}>
                     <Slider {...settings} className="mt-4 me-xl-5 ms-xl-5 mb-5">
                         {
                             sliderArray.map((value, index) =>
@@ -51,16 +55,26 @@ const PersonalView = () => {
                         }
                     </Slider>
                 </Col>
-                <Col xl={5} className="mx-5">
-                    <label className="p-font">{personalViewList.label}</label>
-                    <p className="p-font-sub">{personalViewList.price}</p>
-                    <p className="p-font-sub2">Availabel : {personalViewList.available ? "In Stock" : "Out of Stock"}</p>
-                    <p className="p-sub-para w-100">{personalViewList.description}</p>
+                <Col xs={12} xl={5}>
+                    <div className="row">
+                        <div className="col-12">
+                            <label className="p-font">{personalViewList.label}</label>
+                        </div>
+                        <div className="col-12">
+                            <p className="p-font-sub">{personalViewList.price}</p>
+                        </div>
+                        <div className="col-12">
+                            <p className="p-font-sub2">Availabel : {personalViewList.available ? "In Stock" : "Out of Stock"}</p>
+                        </div>
+                        <div className="col-12">
+                            <p className="p-sub-para w-100">{personalViewList.description}</p>
+                        </div>
+                    </div>
                     <ModalImgV pl={hItem} display={dis} />
-                    <p>Select your Frame/Pillar</p>
-                    <Row>
+                    <p style={{ color: '#44233B' }} className="fw-700">Select your Frame/Pillar</p>
+                    <div className="row ms-xl-3 ms-3">
                         {personalViewList.pillers.map((v) =>
-                            <Col xl={2} className="p-0">
+                            <Col xl={2} xs={4} className="p-0">
                                 <label
                                     onMouseLeave={() => onHoverOutAction()}
                                     onMouseEnter={() => onHoverAction(v.img)}>
@@ -70,18 +84,24 @@ const PersonalView = () => {
                                         value={v.img}
                                         onChange={(e) => setSelectedItem(e.target.value)} />
                                     <Image src={v.img} />
-                                    <p>{v.nm}</p>
+                                    <p className="text-center fw-400 fs-12">{v.nm}</p>
                                 </label>
                             </Col>
                         )}
-                    </Row>
-                    <Button className=" mt-3 btn btn-primary" disabled={selectedItm ? false : true}>Inquire Now</Button>
-                    <div className="mt-4">
-                        <label className="fw-bold share">SHARE</label>
-                        <label className="ms-3 fb icon-h"><FaFacebookF /></label>
-                        <label className="ms-3 insta icon-h"><AiFillInstagram /></label>
+                    </div>
+                    <div className="row justify-content-center">
+                        <div className="col-9 col-xl-12">
+                            <Button className=" mt-3 btn btn-primary" disabled={selectedItm ? false : true} onClick={() => setInf(true)}>Inquire Now</Button>
+                        </div>
                     </div>
                 </Col>
+                {/* <Col xl={5} xs={12} className="mx-5 mt-xl-5">
+                    
+                    
+                    <Row>
+                       
+                    </Row>
+                </Col> */}
             </Row>
             <Row className="mt-5 mb-5 me-xl-5 ms-xl-5">
                 <Col>

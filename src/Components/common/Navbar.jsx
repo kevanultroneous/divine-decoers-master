@@ -6,6 +6,7 @@ import logo from "../../Assets/images/icon.png";
 import call from "../../Assets/images/call.png"
 import OffCanvasComp from "./OffCanvasComp";
 import { Link, useNavigate } from "react-router-dom";
+import menu from "../../Assets/images/menu.png"
 const DivineNavbar = () => {
   const [show, setShow] = useState(false)
   const handleClose = () => {
@@ -20,7 +21,9 @@ const DivineNavbar = () => {
               <Image src={logo} className="icon-size" />
             </Navbar.Brand>
           </Link>
-          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Toggle aria-controls="navbarScroll" className="border-none">
+            <Image src={menu} />
+          </Navbar.Toggle>
           <Navbar.Collapse id="navbarScroll">
             <Nav className="ms-auto my-2 my-lg-0 nav-fonts" navbarScroll>
               <Link to="/" className="text-decoration-none">
@@ -30,7 +33,7 @@ const DivineNavbar = () => {
               </Link>
               <Link to="/customtemples" className="text-decoration-none">
                 <Nav.Link href="/customtemples" className="me-xl-5 me-md-5 me-lg-5">Products</Nav.Link>
-              </Link>
+              </Link> 
               <Nav.Link href="http://localhost:3000/#about" className="">About Us</Nav.Link>
               {/* <div className="vector"/> */}
               <Link to="/customtemples" className="text-decoration-none">
