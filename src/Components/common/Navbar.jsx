@@ -7,6 +7,7 @@ import call from "../../Assets/images/call.png"
 import OffCanvasComp from "./OffCanvasComp";
 import { Link, useNavigate } from "react-router-dom";
 import menu from "../../Assets/images/menu.png"
+import ScrollToTop from "react-scroll-to-top";
 const DivineNavbar = () => {
   const [show, setShow] = useState(false)
   const [chngClr, setChmgClr] = useState(false)
@@ -14,18 +15,19 @@ const DivineNavbar = () => {
     setShow(false)
   }
   const changeNavbarColor = () => {
-    if(window.scrollY >= 80){
+    if (window.scrollY >= 80) {
       setChmgClr(true)
     }
-    else{
+    else {
       setChmgClr(false)
     }
   }
   window.addEventListener('scroll', changeNavbarColor);
   return (
     <>
+      <ScrollToTop smooth />
       <Image src={call} id="myBtn" onClick={() => setShow(true)} />
-      <Navbar expand="lg" sticky="top" style={{ background: chngClr ? '#FFEFE2' : 'none' }}>
+      <Navbar expand="lg" style={{ background: chngClr ? '#FFEFE2' : 'none' }}>
         <Container fluid className="mt-3  mt-xl-3 mt-lg-3  mt-md-3">
           <Link to="/" className="text-decoration-none">
             <Navbar.Brand href="#" className="ms-md-5 ms-xs-1 ms-xl-5 ms-lg-5">

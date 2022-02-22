@@ -74,7 +74,7 @@ const PersonalView = () => {
                     <p style={{ color: '#44233B' }} className="fw-700">Select your Frame/Pillar</p>
                     <div className="row ms-xl-3 ms-3">
                         {personalViewList.pillers.map((v) =>
-                            <Col xl={2} xs={4} className="p-0">
+                            <Col xl={2} xs={4} md={2} className="p-0">
                                 <label
                                     onMouseLeave={() => onHoverOutAction()}
                                     onMouseEnter={() => onHoverAction(v.img)}>
@@ -90,18 +90,11 @@ const PersonalView = () => {
                         )}
                     </div>
                     <div className="row justify-content-center">
-                        <div className="col-9 col-xl-12">
+                        <div className="col-9 col-xl-12 col-md-12 ms-md-5">
                             <Button className=" mt-3 btn btn-primary" disabled={selectedItm ? false : true} onClick={() => setInf(true)}>Inquire Now</Button>
                         </div>
                     </div>
                 </Col>
-                {/* <Col xl={5} xs={12} className="mx-5 mt-xl-5">
-                    
-                    
-                    <Row>
-                       
-                    </Row>
-                </Col> */}
             </Row>
             <Row className="mt-5 mb-5 me-xl-5 ms-xl-5">
                 <Col>

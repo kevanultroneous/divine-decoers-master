@@ -3,10 +3,10 @@ import mandir from "../../Assets/images/mandir.png"
 const PersonalAd = () => {
     return (
         <Row className="footer-back  justify-content-center">
-            <Col xs={12} xl={4}>
+            <Col xs={12} xl={4} md={6} className=" mt-3 mb-3 m-xl-0">
                 <Image src={mandir} />
             </Col>
-            <Col xs={12} xl={6}>
+            <Col xs={12} xl={6} md={6} className=" mt-3 mb-3 m-xl-0">
                 <label className="text-white fw-600 fs-37 mt-5">Any Temple Can Be Made In Any Size</label>
                 <p className="text-white fs-f-20">
                     Temple width options 60cm /80cm /100cm /120cm /150cm /180cm /200cm /250cm
