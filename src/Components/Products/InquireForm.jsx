@@ -4,6 +4,8 @@ import close from "../../Assets/images/close.png"
 import validator from 'validator';
 import { InquireNow } from "../../Api/api";
 import { useLocation, useNavigate } from "react-router-dom";
+import PhoneInput from "react-phone-input-2";
+import 'react-phone-input-2/lib/style.css'
 const Inputs = (p) => {
     return (
         <Row className="mt-4 mb-3">
@@ -26,7 +28,7 @@ const Inputs = (p) => {
 }
 const InquireForm = (props) => {
 
-    const [cs,setCs] = useState(false)
+    const [cs, setCs] = useState(true)
     const [name, setName] = useState('')
     const [mail, setMail] = useState('')
     const [number, setNumber] = useState('')
@@ -42,54 +44,60 @@ const InquireForm = (props) => {
     const [frameE, setFrameE] = useState('none')
     const [sizeE, setSizeE] = useState('none')
     const [desE, setDesE] = useState('none')
-    const InquireApi = () =>{
+    const InquireApi = () => {
         const obj = {
-            "name":name,
-            "templename":"mandir",
-            "email":mail,
-            "phone":number,
-            "frame":frame,
-            "width":width,
-            "height":height,
-            "depth":Depth,
-            "description":des
+            "name": name,
+            "templename": "mandir",
+            "email": mail,
+            "phone": number,
+            "frame": frame,
+            "width": width,
+            "height": height,
+            "depth": Depth,
+            "description": des
         }
         InquireNow(obj)
-        .then((response)=>{
-            if(response.data.status){
-            clearAll()
-            return true
-        }})
-        .catch((e)=>alert(e.message))
+            .then((response) => {
+                if (response.data.status) {
+                    clearAll()
+                    return true
+                }
+            })
+            .catch((e) => alert(e.message))
     }
     const handleForm = () => {
         clearError()
-        if (validator.isEmpty(name)) {
+        if (validator.isEmpty(name) || name.length <= 2) {
             setCs(true)
-           return setNameE('block')
+            setNameE('block')
         }
-        if (validator.isEmpty(mail) || !validator.isEmail(mail)) {
+        else if (validator.isEmpty(mail) || !validator.isEmail(mail)) {
             setCs(true)
-            return setMailE('block')
+            setMailE('block')
         }
-        if(validator.isEmpty(number)){
+        else if (validator.isEmpty(number) || !validator.isMobilePhone(number)) {
             setCs(true)
-            return setNumberE('block')
+            setNumberE('block')
         }
-        if(validator.isEmpty(frame)){
+        else if (validator.isEmpty(frame)) {
             setCs(true)
-            return setFrameE('block')
+            setFrameE('block')
         }
-        if(validator.isEmpty(width) || validator.isEmpty(height) || validator.isEmpty(Depth)){
+        else if (
+            (validator.isEmpty(width) || isNaN(width)) ||
+            (validator.isEmpty(height) || isNaN(height)) ||
+            (validator.isEmpty(Depth) || isNaN(Depth))) {
             setCs(true)
-            return setSizeE('block')
+            setSizeE('block')
         }
-        if(validator.isEmpty(des)){
+        else if (validator.isEmpty(des)) {
             setCs(true)
-            return setDesE('block')
+            setDesE('block')
+        } else {
+            setCs(false)
         }
     }
-    const clearError = () =>{
+    const clearError = () => {
         setNameE('none')
         setMailE('none')
         setNumberE('none')
@@ -97,7 +105,7 @@ const InquireForm = (props) => {
         setSizeE('none')
         setDesE('none')
     }
-    const clearAll = () =>{
+    const clearAll = () => {
         setName('')
         setMail('')
         setNumber('')
@@ -108,9 +116,9 @@ const InquireForm = (props) => {
         setDes('')
     }
     const navigate = useNavigate()
-    const submitForm = () =>{
+    const submitForm = () => {
         handleForm()
-        if(cs){
+        if (!cs) {
             InquireApi()
             navigate('/thankyou')
         }
@@ -123,6 +131,7 @@ const InquireForm = (props) => {
             centered
         >
             <Modal.Body className="p-5" style={{ background: '#FFEFE2', borderRadius: '12px' }}>
+
                 <div className="text-end">
                     <Image src={close} height={35} onClick={props.hide} />
                 </div>
@@ -145,10 +154,11 @@ const InquireForm = (props) => {
                         <label className="fw-700 in-form-sub">Modern  Temple</label>
                     </Col>
                 </Row>
+
                 <Inputs
                     name="Name*"
                     type="text"
-                    error="Required *"
+                    error="Enter Valid Name"
                     placeholder="Enter Name"
                     value={name}
                     change={(e) => setName(e.target.value)}
@@ -158,25 +168,33 @@ const InquireForm = (props) => {
                     name="Email Address*"
                     type="email"
                     value={mail}
-                    change={(e)=>setMail(e.target.value)}
+                    change={(e) => setMail(e.target.value)}
                     placeholder="Enter email address"
-                    error="Required *"
+                    error="Enter valid Email"
                     errorshow={mailE}
                 />
-                <Inputs
-                    name="Phone Number*"
-                    type="text"
-                    value={number}
-                    change={(e)=>setNumber(e.target.value)}
-                    placeholder="Enter Phone Number"
-                    error="Required *"
-                    errorshow={numberE}
-                />
+                <Row className="mt-4 mb-3">
+                    <Col xl={12}>
+                        <label className="fs-16 fw-600">Phone number</label>
+                    </Col>
+                    <Col xl={12}>
+                        <PhoneInput
+                            countryCodeEditable={false}
+                            enableSearch={true}
+                            country={'us'}
+                            value={number}
+                            onChange={phone => setNumber(phone)}
+                        />
+                    </Col>
+                    <Col xl={12}>
+                        <label className="fs-16 fw-600" style={{ color: '#DB4242', display: numberE }}>Enter valid Phone number</label>
+                    </Col>
+                </Row>
                 <Inputs
                     name="Frame/Pillar Number*"
                     type="text"
                     value={frame}
-                    change={(e)=>setFrame(e.target.value)}
+                    change={(e) => setFrame(e.target.value)}
                     placeholder="Enter Frame/Pillar Number"
                     error="Required *"
                     errorshow={frameE}
@@ -191,8 +209,8 @@ const InquireForm = (props) => {
                             placeholder="Width : "
                             type="text"
                             value={width}
-                            onChange={(e)=>setWidth(e.target.value)}
-                            />
+                            onChange={(e) => setWidth(e.target.value)}
+                        />
                     </Col>
                     <Col xl={4}>
                         <input
@@ -200,7 +218,7 @@ const InquireForm = (props) => {
                             placeholder="Height : "
                             type="text"
                             value={height}
-                            onChange={(e)=>setHeight(e.target.value)} />
+                            onChange={(e) => setHeight(e.target.value)} />
                     </Col>
                     <Col xl={4}>
                         <input
@@ -208,11 +226,11 @@ const InquireForm = (props) => {
                             placeholder="Depth : "
                             type="text"
                             value={Depth}
-                            onChange={(e)=>setDepth(e.target.value)} />
+                            onChange={(e) => setDepth(e.target.value)} />
                     </Col>
                     <Col xl={12}>
                         <label className="fs-16 fw-600" style={{ color: '#DB4242', display: sizeE }}>
-                            Required *
+                           Enter valid Information
                         </label>
                     </Col>
                 </Row>
@@ -222,9 +240,9 @@ const InquireForm = (props) => {
                     </Col>
                     <Col xl={12}>
                         <textarea
-                        value={des}
-                        onChange={(e)=>setDes(e.target.value)}
-                        placeholder="Type here..." className="in-form p-3 w-100">
+                            value={des}
+                            onChange={(e) => setDes(e.target.value)}
+                            placeholder="Type here..." className="in-form p-3 w-100">
                         </textarea>
                     </Col>
                     <Col xl={12}>

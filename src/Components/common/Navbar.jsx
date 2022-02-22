@@ -27,7 +27,7 @@ const DivineNavbar = () => {
     <>
       <ScrollToTop smooth  style={{background:'#DB4242',color:'#fff'}}/>
       <Image src={call} id="myBtn" onClick={() => setShow(true)} />
-      <Navbar expand="lg" style={{ background: chngClr ? '#FFEFE2' : 'none' }}>
+      <Navbar expand="lg" style={{ background: chngClr ? '#FFEFE2' : 'none' }} className="fixed-mob-top">
         <Container fluid className="mt-3  mt-xl-3 mt-lg-3  mt-md-3">
           <Link to="/" className="text-decoration-none">
             <Navbar.Brand href="#" className="ms-md-5 ms-xs-1 ms-xl-5 ms-lg-5">

@@ -16,6 +16,7 @@ const CustomTemples = () => {
         {
           customTempleList.map((value, index) =>
             <ProductCard
+              key={index}
               image={value.image}
               name={value.name}
               price={value.price}

@@ -7,12 +7,12 @@ const ProductCard = (value) => {
       <Link to="/viewitem">
         <div className="card p-0 border-0 w-100">
           <Image src={value.image} className="card-img-top" alt="" />
-          <div className="card-img-overlay overlay">
+          <div className="card-img-overlay overlay overlay-m">
             <div className="row">
-              <div className="col-6 col-xl-6  col-md-8 col-xs-6 position-absolute bottom-0 mb-2 text-white fw-700">
+              <div className="col-8 col-xl-8 col-lg-8  col-md-8 col-xs-8 position-absolute bottom-0 mb-2 text-white fw-700">
                 {value.name}
               </div>
-              <div className="col-6 col-xl-6 col-md-4  position-absolute bottom-0 end-0 text-end  mb-2 text-white fw-700">
+              <div className="col-4 col-xl-4 col-lg-4 col-md-4 col-xs-4 position-absolute bottom-0 end-0 text-end  mb-2 text-white fw-700">
                 {value.price}
               </div>
             </div>

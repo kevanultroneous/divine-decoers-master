@@ -5,7 +5,7 @@ import leftArrow from '../../Assets/images/left.svg'
 const LabelWithChild = (props) => {
   return (
     <Row className="ms-xs-5 ms-xl-5 ms-md-5 ms-lg-5 ms-1">
-      <Col lg="6" xl={6} className="mt-5 mb-3 p-0">
+      <Col lg="6" xl={6} className="mt-xl-5 mt-xs-0 mb-3 p-0">
         <label className="label-text">{props.title}</label>
         <div className="border-label"></div>
       </Col>

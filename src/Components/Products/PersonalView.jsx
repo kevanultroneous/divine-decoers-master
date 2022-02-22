@@ -3,6 +3,9 @@ import { Button, Col, Image, Row } from "react-bootstrap"
 import { personalViewList, sliderRes } from "../../common/common"
 import Slider from "react-slick/lib/slider"
 import InquireForm from "./InquireForm"
+import rightA from "../../Assets/images/r-a.png"
+import leftA from "../../Assets/images/l-a.png"
+
 const PersonalView = () => {
     const [product_information, setProduct_information] = useState(personalViewList.information)
     const [sliderArray, setSliderArray] = useState(personalViewList.images)
@@ -16,7 +19,9 @@ const PersonalView = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        responsive: sliderRes
+        responsive: sliderRes,
+        nextArrow: <Image src={rightA} height={200}/>,
+      prevArrow: <Image src={leftA}/>
     };
     const onHoverAction = (img) => {
         setDis('block')
@@ -44,7 +49,7 @@ const PersonalView = () => {
                     <Slider {...settings} className="mt-4 me-xl-5 ms-xl-5 mb-5">
                         {
                             sliderArray.map((value, index) =>
-                                <div className="card p-0 border-0">
+                                <div className="card p-0 border-0" key={index}>
                                     <Image src={value} className="card-img-top" alt="" />
                                 </div>
                             )
@@ -52,7 +57,7 @@ const PersonalView = () => {
                     </Slider>
                 </Col>
                 <Col xs={12} xl={5}>
-                    <div className="row">
+                    <div className="row mt-xl-4">
                         <div className="col-12">
                             <label className="p-font">{personalViewList.label}</label>
                         </div>
@@ -68,9 +73,9 @@ const PersonalView = () => {
                     </div>
                     <ModalImgV pl={hItem} display={dis} />
                     <p style={{ color: '#44233B' }} className="fw-700">Select your Frame/Pillar</p>
-                    <div className="row ms-xl-3 ms-3">
-                        {personalViewList.pillers.map((v) =>
-                            <Col xl={2} xs={4} md={2} className="p-0">
+                    <div className="row ms-xl-3 ms-3 mt-5">
+                        {personalViewList.pillers.map((v,i) =>
+                            <Col xl={2} xs={4} md={2} className="p-0" key={i}>
                                 <label
                                     onMouseLeave={() => onHoverOutAction()}
                                     onMouseEnter={() => onHoverAction(v.img)}>
@@ -80,7 +85,7 @@ const PersonalView = () => {
                                         value={v.img}
                                         onChange={(e) => setSelectedItem(e.target.value)} />
                                     <Image src={v.img} />
-                                    <p className="text-center fw-400 fs-12">{v.nm}</p>
+                                    <p className="text-center fw-400 fs-12 mt-3">{v.nm}</p>
                                 </label>
                             </Col>
                         )}
@@ -96,7 +101,7 @@ const PersonalView = () => {
                 <Col>
                     <label className="fw-bold list-font">Product Information</label>
                     <ul className="mt-5">
-                        {product_information.map((v) => <li className="list-font">{v}</li>)}
+                        {product_information.map((v,i) => <li className="list-font" key={i}>{v}</li>)}
                     </ul>
                 </Col>
             </Row>
