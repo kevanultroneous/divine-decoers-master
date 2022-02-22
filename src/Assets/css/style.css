@@ -134,6 +134,7 @@
   font-size: 40px;
   color: #DB4242;
 }
+
 .slick-dots li button:before {
   font-size: 17px;
   line-height: 20px;
@@ -147,10 +148,12 @@
   opacity: .25;
   color: #884B5B;
 }
+
 .slick-dots li.slick-active button:before {
   opacity: .75;
   color: #884B5B;
 }
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 2.5rem;
@@ -300,21 +303,23 @@
 .carousel-star {
   font-size: 30px;
 }
+
 .slick-next, .slick-prev {
   font-size: 0;
   line-height: 0;
   top: 50%;
   width: 40px;
   height: 40px;
-  -webkit-transform: translate(0,-50%);
-  -ms-transform: translate(0,-50%);
-  transform: translate(0,-50%);
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
   cursor: pointer;
   color: transparent;
   border: none;
   outline: 0;
   background: 0 0;
 }
+
 .slick-prev {
   left: 1rem;
   z-index: 1;
@@ -458,6 +463,7 @@
 .modal-v {
   width: fit-content;
 }
+
 /* 
 
 
@@ -474,10 +480,12 @@
     opacity: 0;
     transition: .5s ease;
     background: linear-gradient(to Bottom, #44243B00 76%, #2B1725E0 100%);
-}
-  .w-xl-100{
+  }
+
+  .w-xl-100 {
     width: 100% !important;
   }
+
   .test-height {
     height: 33em;
   }
@@ -575,6 +583,26 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .fs-37 {
+    font-size: 18px;
+  }
+
+  .fs-15 {
+    font-size: 28px;
+  }
+
+  .w-md-100 {
+    width: 100% !important;
+  }
+
+  .fs-f-20 {
+    font-size: medium;
+  }
+
+  .fs-22 {
+    font-size: 18px;
+  }
+
   .overlay {
     opacity: 1;
   }
