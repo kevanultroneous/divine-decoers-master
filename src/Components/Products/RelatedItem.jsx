@@ -23,7 +23,7 @@ const RelatedItem = () => {
         prev={() => sliderRef.current.slickNext()}
       />
       <Row className="justify-content-center">
-        <Col xl={12} md={12}>
+        <Col xl={12} md={12} lg={12}>
           <Slider {...settings} ref={sliderRef} className="mt-4 me-xl-5 ms-xl-5 me-md-5 ms-md-5 mb-5">
             {
               customTempleList.map((value, index) =>

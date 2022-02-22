@@ -45,7 +45,7 @@ const PersonalView = () => {
                 hide={() => setInf(false)}
             />
             <Row className="mt-3 mb-5 ms-xl-5">
-                <Col xl={5} lg={8} xs={12}>
+                <Col xl={5} lg={6} xs={12}>
                     <Slider {...settings} className="mt-4 me-xl-5 ms-xl-5 mb-5">
                         {
                             sliderArray.map((value, index) =>
@@ -56,7 +56,7 @@ const PersonalView = () => {
                         }
                     </Slider>
                 </Col>
-                <Col xs={12} xl={5}>
+                <Col xs={12} xl={5} lg={6}>
                     <div className="row mt-xl-4">
                         <div className="col-12">
                             <label className="p-font">{personalViewList.label}</label>
