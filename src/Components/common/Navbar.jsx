@@ -25,7 +25,7 @@ const DivineNavbar = () => {
   window.addEventListener('scroll', changeNavbarColor);
   return (
     <>
-      <ScrollToTop smooth />
+      <ScrollToTop smooth  style={{background:'#DB4242',color:'#fff'}}/>
       <Image src={call} id="myBtn" onClick={() => setShow(true)} />
       <Navbar expand="lg" style={{ background: chngClr ? '#FFEFE2' : 'none' }}>
         <Container fluid className="mt-3  mt-xl-3 mt-lg-3  mt-md-3">

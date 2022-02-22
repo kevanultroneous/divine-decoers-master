@@ -44,7 +44,7 @@ const Footer = () => {
             aria-label="Email Address"
             aria-describedby="basic-addon2"
           />
-          <InputGroup.Text id="basic-addon2 " className="email-btn">OK</InputGroup.Text>
+          <InputGroup.Text id="basic-addon2 " className="email-btn">Submit</InputGroup.Text>
         </InputGroup>
       </Col>
     </Row>

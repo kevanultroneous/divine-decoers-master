@@ -1,11 +1,7 @@
 import { useState } from "react"
-import { Button, Col, Image, Modal, Row } from "react-bootstrap"
-import { AiFillInstagram } from "react-icons/ai"
-import { FaFacebookF } from "react-icons/fa"
+import { Button, Col, Image, Row } from "react-bootstrap"
 import { personalViewList, sliderRes } from "../../common/common"
 import Slider from "react-slick/lib/slider"
-import pl from "../../Assets/images/plr.png"
-import PersonalAd from "./PersonalAd"
 import InquireForm from "./InquireForm"
 const PersonalView = () => {
     const [product_information, setProduct_information] = useState(personalViewList.information)

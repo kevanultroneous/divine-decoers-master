@@ -4,6 +4,10 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.card-h {
+  height: 400px;
+}
+
 #myBtn {
   display: none;
   /* Hidden by default */
@@ -274,7 +278,7 @@
 .carousel-label {
   color: #DB4242;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .carousel-star {
@@ -434,18 +438,30 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .styles_scroll-to-top__2A70v {
+    left: 12px;
+  }
+
+  .card-h {
+    height: 500px;
+  }
+
   .p-font {
     font-size: 40px;
   }
+
   .in-from-hd {
     font-size: 38px;
-}
-.in-form-para {
-  font-size:small;
-}
-.in-form-sub {
-  font-size: 30px;
-}
+  }
+
+  .in-form-para {
+    font-size: small;
+  }
+
+  .in-form-sub {
+    font-size: 30px;
+  }
+
   .background-home {
     background-image: url("../images/mobile.png");
     background-size: cover;
@@ -490,6 +506,11 @@
   #myBtn {
     display: block;
   }
+
+  .overlay {
+    opacity: 1;
+  }
+
   /* .under-content {
     margin-top: 20em;
     margin-left: 0em;
@@ -497,7 +518,16 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  
+  .overlay {
+    opacity: 1;
+  }
+  .styles_scroll-to-top__2A70v {
+    left: 12px;
+  }
+  .card-h {
+    height: 350px;
+  }
+
   .background-home {
     background-image: url("../images/mobile.png");
     background-size: cover;
