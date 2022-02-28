@@ -11,7 +11,7 @@ const SystemRoute = () => {
             <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/customtemples" element={<CustomTemplePage />} />
-                <Route path="/viewitem" element={<PersonalViewPage/>}/>
+                <Route path="/viewitem/:templeid" element={<PersonalViewPage/>}/>
                 <Route path="/thankyou" element={<ThankYou/>}/>
                 <Route path="*" element={<NotFound/>}/>
             </Routes>

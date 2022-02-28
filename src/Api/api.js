@@ -8,3 +8,9 @@ export const getAboutus = () =>{
 export const InquireNow = (obj) =>{
     return axios.post('addinquiredata',obj)
 }
+export const getTemples = () =>{
+    return axios.get('gettemples')
+}
+export const getTemplesById = (id) =>{
+    return axios.get(`gettemples/${id}`)
+}

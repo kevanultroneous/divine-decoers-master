@@ -11,7 +11,7 @@ const AboutUs = () => {
   }
   useEffect(() => {
     getData()
-  }, [about])
+  }, [])
   return (
     <>
       <LabelOfContent title={"About Us"} />

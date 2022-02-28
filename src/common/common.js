@@ -2,6 +2,12 @@ import image from "../Assets/images/model.jpg";
 import user from "../Assets/images/user.png";
 import plr from "../Assets/images/plr.png";
 
+export const findId = (str) =>{
+  let k1 = str.indexOf('-')
+  let k2 = str.substring(k1+1)
+  return k2;
+}
+
 export const customTempleList = [
   {
     image: image,

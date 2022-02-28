@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const ProductCard = (value) => {
   return (
     <div className="col-lg-6 mt-lg-5 mt-xl-4 mt-3 mt-md-4 col-md-5 col-xl-3 ">
-      <Link to="/viewitem">
+      <Link to={`/viewitem/${value.iditem}`}>
         <div className="card p-0 border-0 w-100">
           <Image src={value.image} className="card-img-top" alt="" />
           <div className="card-img-overlay overlay overlay-m">
